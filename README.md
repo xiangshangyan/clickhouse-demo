@@ -1,2 +1,2 @@
 # clickhouse-demo
-clickhouse示例代码
+springboot集成lickhouse示例代码
