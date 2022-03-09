@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.clickhousedemo.mapper.HitsV1Mapper">
+    <resultMap id="BaseResultMap" type="com.example.clickhousedemo.entity.HitsV1">
+        <id column="WatchID" jdbcType="BIGINT" property="watchID" />
+        <result column="JavaEnable" jdbcType="INTEGER" property="javaEnable" />
+        <result column="Title" jdbcType="VARCHAR" property="title" />
+        <result column="GoodEvent" jdbcType="BIGINT" property="goodEvent" />
+        <result column="EventTime" jdbcType="TIMESTAMP" property="eventTime" />
+        <result column="EventDate" jdbcType="DATE" property="eventDate" />
+    </resultMap>
+
+    <select id="selectByWatchId" resultMap="BaseResultMap">
+        select WatchID,  JavaEnable, Title,EventTime, EventDate from `tutorial`.hits_v1 where WatchID = #{watchId}
+    </select>
+</mapper>

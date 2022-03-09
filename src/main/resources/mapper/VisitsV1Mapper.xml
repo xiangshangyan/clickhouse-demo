@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.clickhousedemo.mapper.VisitsV1Mapper">
+
+    <select id="findAvgVisitsByStartDateLimit10" resultType="com.example.clickhousedemo.entity.AvgVisitsV1">
+        select StartURL as url, avg(Duration) as avgDuration
+        from tutorial.visits_v1
+        where StartDate between #{startDate} and #{endDate}
+        group by url
+        order by avgDuration desc
+            limit 10
+    </select>
+</mapper>
